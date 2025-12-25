@@ -13,16 +13,12 @@ This repository focuses on high-performance implementations of classic algorithm
 * **Testing:** 100% coverage using **JUnit 5**.
 * **Education:** Detailed explanations of how each algorithm works.
 
----
-
 ## 🛠️ Tech Stack
 
 * **Language:** Java 17 or higher
 * **Build Tool:** Maven (or Gradle)
 * **Testing Framework:** JUnit 5
 * **Documentation:** Javadoc
-
----
 
 ## 📂 Repository Structure
 
@@ -36,7 +32,7 @@ src/main/java/com/yourname/algorithms/
 ├── datastructures/     # Custom Trees, Graphs, Linked Lists, Heaps.
 ├── strings/            # KMP, Pattern Matching, Palindrome algorithms.
 └── math/               # GCD, Primality Tests, Fibonacci
-
+```
 ---
 
 Developed by ☕ **bieldev.**  
