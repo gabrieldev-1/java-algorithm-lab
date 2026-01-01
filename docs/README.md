@@ -1,42 +1,26 @@
 # Java Algorithm Lab 🚀
 
-A comprehensive collection of fundamental data structures and algorithms implemented from scratch in **Java**. This project serves as a technical portfolio to demonstrate proficiency in computer science fundamentals, clean code practices, and Big O analysis.
+A personal repository to document my learning journey in Data Structures and Algorithms using Java.
 
----
+## 📌 About this Project
+This is a collection of manual implementations created from scratch. The goal is to understand the logic behind common algorithms and how data is structured in memory.
 
-## 📌 Project Overview
+## 📂 Content
 
-This repository focuses on high-performance implementations of classic algorithms. Each implementation is designed to be readable, efficient, and well-documented with Javadoc comments.
+### 1. Algorithms
+- **Sorting:** (e.g., Bubble Sort, Quick Sort)
+- **Searching:** (e.g., Binary Search)
 
-### Key Objectives:
-* **Performance:** Optimal time and space complexity.
-* **Testing:** 100% coverage using **JUnit 5**.
-* **Education:** Detailed explanations of how each algorithm works.
+### 2. Data Structures
+- **Linear:** Linked Lists, Stacks, Queues.
+- **Non-Linear:** Trees, Hash Tables.
 
----
+## 🛠️ Requirements
+- Java 17 or higher.
+- A Java IDE (IntelliJ, VS Code, or Eclipse).
 
-## 🛠️ Tech Stack
-
-* **Language:** Java 17 or higher
-* **Build Tool:** Maven (or Gradle)
-* **Testing Framework:** JUnit 5
-* **Documentation:** Javadoc
-
----
-
-## 📂 Repository Structure
-
-The project is organized into logical packages:
-
-```text
-src/main/java/com/yourname/algorithms/
-│
-├── sorting/            # QuickSort, MergeSort, HeapSort, etc.
-├── searching/          # Binary Search, Linear Search, Interpolation Search.
-├── datastructures/     # Custom Trees, Graphs, Linked Lists, Heaps.
-├── strings/            # KMP, Pattern Matching, Palindrome algorithms.
-└── math/               # GCD, Primality Tests, Fibonacci
-
----
-
+## 🚀 How to use
+1. Clone this repository:
+   ```bash
+   git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
 Developed by ☕ **bieldev.**  
