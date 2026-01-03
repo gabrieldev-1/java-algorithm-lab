@@ -19,8 +19,6 @@ This is a collection of manual implementations created from scratch. The goal is
 - Java 17 or higher.
 - A Java IDE (IntelliJ, VS Code, or Eclipse).
 
-## 🚀 How to use
-1. Clone this repository:
-   ```bash
-   git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+---
+
 Developed by ☕ **bieldev.**  
