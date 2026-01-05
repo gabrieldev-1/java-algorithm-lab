@@ -17,7 +17,6 @@ This is a collection of manual implementations created from scratch. The goal is
 
 ## 🛠️ Requirements
 - Java 17 or higher.
-- A Java IDE (IntelliJ, VS Code, or Eclipse).
 
 ---
 
