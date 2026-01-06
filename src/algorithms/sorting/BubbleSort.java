@@ -1,16 +1,6 @@
 package algorithms.sorting;
 
-import java.util.Random;
-import java.util.Arrays;
-
 public class BubbleSort {
-	public static int[] generateArray(int n, int min, int max) {
-		return new Random()
-			.ints(n, min, max)
-			.toArray();
-	
-	}
-
 	/**
 	 * Sort a list of integers using bubble sort.
 	 * 
@@ -38,18 +28,6 @@ public class BubbleSort {
 			if(!swapped) {
 				break;
 			}
-
 		}
-	}
-
-	public static void main(String[] args) {
-		int[] list = generateArray(10, 0, 25);
-		
-		System.out.println("unsorted array: " + Arrays.toString(list));
-		
-		sort(list);
-		
-		System.out.println("ordered array: " + Arrays.toString(list));
-
 	}
 }
