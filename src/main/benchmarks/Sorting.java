@@ -26,7 +26,7 @@ public class Sorting {
         
         System.out.println("=== Sorting Benchmark (Size: " + size + ") ===");
         runAlgorithm("Bubble sort", Arrays.copyOf(originalArray, originalArray.length), BubbleSort::sort);
-        runAlgorithm("Selection  sort", Arrays.copyOf(originalArray, originalArray.length), SelectionSort::sort);
+        runAlgorithm("Selection sort", Arrays.copyOf(originalArray, originalArray.length), SelectionSort::sort);
         runAlgorithm("Insertion sort", Arrays.copyOf(originalArray, originalArray.length), InsertionSort::sort);
 
         
@@ -45,14 +45,13 @@ public class Sorting {
         algorithm.sort(copyArray);
 
         long endTime = System.currentTimeMillis();
-        long executionTime = endTime - startTime;
 
-        System.out.println(name + "-> time: " + executionTime);
+        System.out.printf("%s | Time: %d ms%n", name, (endTime - startTime));
     }
     
 
     public static void main(String[] args) {
         // test 01
-        runTest(10, 0, 10);
+        runTest(10000, 0, 10000);
     }    
 }
