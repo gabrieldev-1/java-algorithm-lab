@@ -52,6 +52,15 @@ public class Sorting {
 
     public static void main(String[] args) {
         // test 01
+        runTest(1000, 0, 1000);
+        System.out.println("==============================================");
+
+        // test 02
         runTest(10000, 0, 10000);
+        System.out.println("==============================================");
+
+        // test 03
+        runTest(100000, 0, 100000);
+        System.out.println("==============================================");
     }    
 }
