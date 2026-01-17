@@ -13,9 +13,4 @@ public class Counter {
         return n + count(n - 1);
 
     }
-
-    public static void main(String[] args) {
-        int result = count(5);
-        System.out.println(result);
-    }
 }
