@@ -10,7 +10,7 @@ public class Counter {
         if(n <= 1) {
             return 1;
         }
-        return n + count(n - 1);
+        return count(n - 1);
 
     }
 }
