@@ -1,11 +1,10 @@
 package algorithms.recursion;
 
-/**
- * Prints the numbers sequentially, starting from 1 and ending with the last number.
- * 
- * @param finalNumber final number
- */
 public class Counter {
+    /* 
+    * Prints the numbers sequentially, starting from N and ending with the one.
+    * @param n start number 
+    */
     public static int count(int n) {
         if(n <= 1) {
             return 1;
