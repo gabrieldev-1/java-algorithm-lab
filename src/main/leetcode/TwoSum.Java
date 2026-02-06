@@ -1,3 +1,5 @@
+package leetcode;
+
 // Problem: 01.Two Sum;
 
 import java.util.Map;
