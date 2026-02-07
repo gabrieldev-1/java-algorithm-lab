@@ -12,16 +12,6 @@ public class SingleLinkedList {
     private Node head;
     private int size;
 
-    private static class Node {
-        int data;
-        Node next;
-
-        public Node(int data) {
-            this.data = data;
-            this.next = null;
-        }
-    }
-
     public SingleLinkedList() {
         this.head = null;
         this.size = 0;
@@ -29,6 +19,10 @@ public class SingleLinkedList {
 
     public int getSize() {
         return size;
+    }
+
+    public Node getHead() {
+        return head;
     }
 
     public void add(int data) {
@@ -40,10 +34,10 @@ public class SingleLinkedList {
         }
 
         Node current = head;
-        while(current.next != null) {
-            current = current.next;
+        while(current.getNext() != null) {
+            current = current.getNext();
         }
-        current.next = newNode;
+        current.setNext(newNode);
         size++;
 
     }
@@ -51,20 +45,20 @@ public class SingleLinkedList {
     public Boolean remove(int data) {
         if (head == null) return false;
 
-        if(head.data == data) {
-            head = head.next;
+        if(head.getData() == data) {
+            head = head.getNext();
             size--;
             return true;
         }
 
         Node current = head;
-        while(current.next != null && current.next.data != data) {
-            current = current.next;
+        while(current.getNext() != null && current.getNext().getData() != data) {
+            current = current.getNext();
 
         }
 
-        if (current.next != null) {
-            current.next = current.next.next;
+        if (current.getNext() != null) {
+            current.setNext(current.getNext().getNext());
             size--;
             return true;
         } 
