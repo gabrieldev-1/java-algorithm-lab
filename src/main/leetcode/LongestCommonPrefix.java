@@ -27,7 +27,9 @@ public class LongestCommonPrefix {
                 
                 if (prefix.isEmpty()) return "";
             
+            }
         }
         return prefix;
+
     }
 }
