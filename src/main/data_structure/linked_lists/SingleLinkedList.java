@@ -49,6 +49,23 @@ public class SingleLinkedList {
         return true;
     }
 
+    public Boolean removeLast() {
+        if (head == null) return false;
+        
+        if(head.getNext() == null) {
+            head = null;
+            return true;
+        }
+
+        Node current = head;
+        while(current.getNext().getNext() != null) {
+            current = current.getNext();     
+        }
+
+        current.setNext(null);
+        return true;
+    }
+
     public Boolean remove(int data) {
         if (head == null) return false;
 
