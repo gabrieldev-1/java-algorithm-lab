@@ -42,6 +42,13 @@ public class SingleLinkedList {
 
     }
 
+    public Boolean removeFirst() {
+        if (head == null) return false;
+
+        head = head.getNext();
+        return true;
+    }
+
     public Boolean remove(int data) {
         if (head == null) return false;
 
@@ -64,7 +71,32 @@ public class SingleLinkedList {
         } 
 
         return false;
+    }
 
+    public Boolean print() {
+        if(head == null) {
+            System.out.println("The list is empty");
+            return false;
+        }
 
+        Node current = head;
+        while(current != null) {
+            System.out.println(current.getData() + " -> ");
+            current = current.getNext();
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        SingleLinkedList list = new SingleLinkedList();
+
+        list.add(2);
+        list.add(9);
+        list.add(3);
+        list.print();
+        Boolean result = list.removeFirst();
+
+        System.out.println("Primeiro item da lista removido!");
+        Boolean print = list.print();
     }
 }
