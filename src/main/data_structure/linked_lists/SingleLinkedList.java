@@ -42,7 +42,7 @@ public class SingleLinkedList {
 
     }
 
-    public Boolean addNext(int data, int position) {
+    public Boolean addNext(int data, int previous) {
         Node newNode = new Node(data);
 
         if(head == null) {
@@ -51,11 +51,11 @@ public class SingleLinkedList {
         }
 
         Node current = head;
-        while(current.getData() != position && current.getNext() != null) {
+        while(current != null && current.getData() != previous) {
             current = current.getNext();
         }
 
-        if(current.getData() != position) {
+        if(current == null) {
             System.out.println("This position does not exist.");
             return false;
 
