@@ -42,6 +42,29 @@ public class SingleLinkedList {
 
     }
 
+    public Boolean addNext(int data, int position) {
+        Node newNode = new Node(data);
+
+        if(head == null) {
+            head = newNode;
+            return true;
+        }
+
+        Node current = head;
+        while(current.getData() != position && current.getNext() != null) {
+            current = current.getNext();
+        }
+
+        if(current.getData() != position) {
+            System.out.println("This position does not exist.");
+            return false;
+
+        }
+        newNode.setNext(current.getNext());
+        current.setNext(newNode);
+        return true;
+    }
+
     public Boolean removeFirst() {
         if (head == null) return false;
 
@@ -66,7 +89,7 @@ public class SingleLinkedList {
         return true;
     }
 
-    public Boolean remove(int data) {
+    public Boolean removeNode(int data) {
         if (head == null) return false;
 
         if(head.getData() == data) {
@@ -102,18 +125,5 @@ public class SingleLinkedList {
             current = current.getNext();
         }
         return true;
-    }
-
-    public static void main(String[] args) {
-        SingleLinkedList list = new SingleLinkedList();
-
-        list.add(2);
-        list.add(9);
-        list.add(3);
-        list.print();
-        Boolean result = list.removeFirst();
-
-        System.out.println("Primeiro item da lista removido!");
-        Boolean print = list.print();
     }
 }
