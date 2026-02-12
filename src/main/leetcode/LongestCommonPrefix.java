@@ -1,7 +1,6 @@
 package leetcode;
 
-// problem: 014;
-// link: https://leetcode.com/problems/longest-common-prefix/description/
+// LEETCODE: 014. Longest Commom Prefix;
 
 public class LongestCommonPrefix {
     /**
