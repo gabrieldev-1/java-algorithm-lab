@@ -25,6 +25,10 @@ public class SingleLinkedList {
         return head;
     }
 
+    public void setHead(Node newHead) {
+        this.head = newHead;
+    }
+
     public void add(int data) {
         Node newNode = new Node(data);
 
