@@ -6,7 +6,7 @@ class Node {
 
     public Node(int data) {
         this.data = data;
-        this.previous = null;2
+        this.previous = null;
     }
 }
 /**
