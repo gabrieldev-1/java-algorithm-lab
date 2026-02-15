@@ -1,4 +1,4 @@
-package data_structure.stack;
+package data_structure.stacks;
 
 class Node {
     int data;
@@ -6,7 +6,7 @@ class Node {
 
     public Node(int data) {
         this.data = data;
-        this.previous = null;
+        this.previous = null;2
     }
 }
 /**
