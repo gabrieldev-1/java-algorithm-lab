@@ -15,14 +15,11 @@ public class RecentCounter {
 
     public int ping(int t) {
         queue.offer(t);
-        int couter = 0;
 
-        for (Integer item : queue) {
-            if (item >= (t - 3000)) {
-                couter++;
-            }
+        while (!queue.isEmpty() && queue.peek() < t - 3000) {
+            queue.poll();
         }
 
-        return couter;
+        return queue.size();
     }
 }
