@@ -17,7 +17,7 @@ public class FindCycles {
     * @param list the singly linked list to be checked
     * @return true if the list contains a cycle, false otherwise
      */
-    public static Boolean find(SingleLinkedList list) {
+    public static Boolean find(LinkedList list) {
         Node slow = list.getHead();
         Node fast = list.getHead();
 

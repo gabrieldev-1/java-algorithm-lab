@@ -17,7 +17,7 @@ Space complexity: O(1)
 @return the middle node of the list
 */
 public class FindMiddleLinkedList {
-    public static Node find(SingleLinkedList list) {
+    public static Node find(LinkedList list) {
         Node current = list.getHead();
         Node middle = list.getHead();
 

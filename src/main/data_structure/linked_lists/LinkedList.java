@@ -8,11 +8,11 @@ package data_structure.linked_lists;
  * * * Note: This implementation maintains a 'size' variable to provide O(1) 
  * access to the list's length, though searching remains linear.
  */
-public class SingleLinkedList {
+public class LinkedList {
     private Node head;
     private int size;
 
-    public SingleLinkedList() {
+    public LinkedList() {
         this.head = null;
         this.size = 0;
     }

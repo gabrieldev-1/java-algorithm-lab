@@ -16,7 +16,7 @@ public class RemoveDuplicates {
     
     @param list the sorted singly linked list to remove duplicates from
     */
-    public static void removeFromSorted(SingleLinkedList list) {
+    public static void removeFromSorted(LinkedList list) {
         Node current = list.getHead();
 
         while(current.getNext() != null) {
@@ -41,7 +41,7 @@ public class RemoveDuplicates {
 
     @param list the unsorted singly linked list to remove duplicates from
     */
-    public static void removeFromUnsorted(SingleLinkedList list) {
+    public static void removeFromUnsorted(LinkedList list) {
         HashMap<Integer, Boolean> map = new HashMap<>();
     
         Node current = list.getHead();

@@ -20,7 +20,7 @@ public class Queue {
         this.tail = null;
         this.size = 0;
     }
-
+    s
     public int peek() {
         if(isEmpty()) {
             throw new RuntimeException("Queue is empty.");

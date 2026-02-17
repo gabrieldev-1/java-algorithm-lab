@@ -3,12 +3,12 @@ package leetcode;
 import data_structure.linked_lists.*;
 
 public class MergeTwoSortedLists {
-    public static SingleLinkedList merge(SingleLinkedList x, SingleLinkedList y) {
+    public static LinkedList merge(LinkedList x, LinkedList y) {
 
         Node currentX = x.getHead();
         Node currentY = y.getHead();
 
-        SingleLinkedList result = new SingleLinkedList();
+        LinkedList result = new LinkedList();
         Node dummy = new Node(0);
         Node tail = dummy;
 

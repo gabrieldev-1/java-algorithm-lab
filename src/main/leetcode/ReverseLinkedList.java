@@ -15,7 +15,7 @@ Space complexity: O(1)
 @param list the singly linked list to be reversed
 */
 public class ReverseLinkedList {
-    public static void reverse(SingleLinkedList list) {
+    public static void reverse(LinkedList list) {
         Node previous = null;
         Node current = list.getHead();
         Node next = null;
