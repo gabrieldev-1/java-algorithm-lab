@@ -36,12 +36,16 @@ public class DoublyLinkedList {
         this.size = 0;
     }
 
-    public int getSize() {
-        return size;
+    public DoublyNode getHead() {
+        return head;
     }
 
-     public DoublyNode getHead() {
-        return head;
+    public DoublyNode getTail() {
+        return tail;
+    }
+
+    public int getSize() {
+        return size;
     }
 
     public void add(int data) {
@@ -59,6 +63,10 @@ public class DoublyLinkedList {
         newNode.setPrev(tail);
         tail = newNode;
         size++;
+    }
+
+    public void remove() {
+
     }
 }
 
