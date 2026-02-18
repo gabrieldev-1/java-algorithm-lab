@@ -1,5 +1,7 @@
 package data_structure.HashMap;
 
+import java.util.Currency;
+
 class BucketNode {
     private String key;
     private int value;
@@ -71,14 +73,27 @@ public class Bucket {
             return;
         }
 
-        BucketNode currNode = head;
-        while(currNode.getNext() != null) {
-            currNode = currNode.getNext();
+        newNode.setNext(head);
+        head = newNode;
+        size++;
+
+    }
+
+    public boolean replace(String key, int newValue) {
+        BucketNode current = head;
+
+        while(current != null) {
+            if(current.getKey().equals(key)) {
+                current.setValue(newValue);
+                return true;
+            }
+
+            current = current.getNext();
         }
 
-        currNode.setNext(newNode);
-        size++;
+        return false;
     }
+
 
     public void print() {
         BucketNode current = head;
