@@ -13,11 +13,20 @@ public class HashMap {
         }
     }
 
-    public void add(String key, int value) {
-        // generate hash. Removes the sign from negative numbers;
+    /**
+     * Generates the hash using key. After this, calculates the index
+     * of the array;
+     * @param key
+     * @return index;
+     */
+    private int calcIndex(String key) {
         int hash = key.hashCode() & 0x7fffffff;
-        int index = hash % buckets.length;
+        return hash % buckets.length;
 
+    }
+
+    public void add(String key, int value) {
+        int index = calcIndex(key);
         Bucket bucket = buckets[index];
 
         if(!bucket.replace(key, value)) {
