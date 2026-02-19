@@ -79,8 +79,31 @@ public class Bucket {
 
     }
 
-    public void remove(String key) {
-        
+    public boolean remove(String key) {
+        if(isEmpty()) {
+            System.out.println("Queue is empty.");
+            return false;
+        }
+
+        if(key.equals(head.getKey())) {
+            head = head.getNext();
+            size--;
+            return true;
+        }
+
+        BucketNode current = head;        
+        while(current.getNext() != null && current.getNext().getKey() != key) {
+            current = current.getNext();
+        }
+
+        if(current.getNext() != null) {
+            current.setNext(current.getNext().getNext());
+            size--;
+            return true;
+        }
+
+        System.out.println("The key not exists.");
+        return false;
     }
 
     public boolean replace(String key, int newValue) {
@@ -115,6 +138,10 @@ public class Bucket {
         list.add("Lucas", 3);
         list.add("Pablo", 9);
   
+        list.print();
+        list.remove("Gabriel");
+
+        System.out.println("New list: ");
         list.print();
     }
 

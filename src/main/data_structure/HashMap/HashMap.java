@@ -8,8 +8,8 @@ public class HashMap {
         this.size = size;
         this.buckets = new Bucket[size];
 
-        for(Bucket bucket : buckets) {
-            bucket = new Bucket();
+        for(int i = 0; i < buckets.length; i++) {
+            buckets[i] = new Bucket();
         }
     }
 
@@ -29,6 +29,7 @@ public class HashMap {
         int index = calcIndex(key);
         Bucket bucket = buckets[index];
 
+        // If the data exists, it replaces it;
         if(!bucket.replace(key, value)) {
             bucket.add(key, value);
         }
@@ -36,5 +37,11 @@ public class HashMap {
 
     public void remove(String key) {
         int index = calcIndex(key);
+        Bucket bucket = buckets[index];
+
+        boolean result = bucket.remove(key);
+        if(!result) {
+            throw new RuntimeException();
+        }
     }
 }
