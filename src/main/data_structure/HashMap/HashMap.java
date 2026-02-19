@@ -1,16 +1,21 @@
 package data_structure.HashMap;
 
 public class HashMap {
+    private int capacity;
     private int size;
     private Bucket[] buckets;
 
-    public HashMap(int size) {
-        this.size = size;
-        this.buckets = new Bucket[size];
+    public HashMap(int capacity) {
+        this.capacity = capacity;
+        this.buckets = new Bucket[capacity];
 
         for(int i = 0; i < buckets.length; i++) {
             buckets[i] = new Bucket();
         }
+    }
+
+    public int getSize() {
+        return size;
     }
 
     /**
@@ -25,13 +30,15 @@ public class HashMap {
 
     }
 
-    public void add(String key, int value) {
+    public void put(String key, int value) {
         int index = calcIndex(key);
         Bucket bucket = buckets[index];
 
-        // If the data exists, it replaces it;
-        if(!bucket.replace(key, value)) {
+        boolean replaced = bucket.replace(key, value);
+        
+        if(!replaced) {
             bucket.add(key, value);
+            size++;
         }
     }
 
@@ -43,5 +50,13 @@ public class HashMap {
         if(!result) {
             throw new RuntimeException();
         }
+        size--;
+    }
+
+    public BucketNode get(String key) {
+        int index = calcIndex(key);
+        Bucket bucket = buckets[index];
+
+        return bucket.get(key);
     }
 }

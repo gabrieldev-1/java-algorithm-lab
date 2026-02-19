@@ -1,7 +1,5 @@
 package data_structure.HashMap;
 
-import java.util.Currency;
-
 class BucketNode {
     private String key;
     private int value;
@@ -64,24 +62,24 @@ public class Bucket {
 
     }
 
-    public void add(String key, int value) {
+    public boolean add(String key, int value) {
         BucketNode newNode = new BucketNode(key, value);
         
         if(isEmpty()) {
             head = newNode;
             size++;
-            return;
+            return true;
         }
 
         newNode.setNext(head);
         head = newNode;
         size++;
 
+        return true;
     }
 
     public boolean remove(String key) {
         if(isEmpty()) {
-            System.out.println("Queue is empty.");
             return false;
         }
 
@@ -92,7 +90,7 @@ public class Bucket {
         }
 
         BucketNode current = head;        
-        while(current.getNext() != null && current.getNext().getKey() != key) {
+        while(current.getNext() != null && !current.getNext().getKey().equals(key)) {
             current = current.getNext();
         }
 
@@ -102,7 +100,6 @@ public class Bucket {
             return true;
         }
 
-        System.out.println("The key not exists.");
         return false;
     }
 
@@ -121,6 +118,22 @@ public class Bucket {
         return false;
     }
 
+    public BucketNode get(String key) {
+        if(isEmpty()) {
+            return null;
+        }
+
+        BucketNode current = head;
+        while (current != null) {
+            if(current.getKey().equals(key)) {
+                return current;
+            }
+            current = current.getNext();
+        }
+
+        return null;
+    }
+
 
     public void print() {
         BucketNode current = head;
@@ -137,12 +150,9 @@ public class Bucket {
         list.add("Gabriel", 7);
         list.add("Lucas", 3);
         list.add("Pablo", 9);
-  
-        list.print();
-        list.remove("Gabriel");
 
-        System.out.println("New list: ");
-        list.print();
+        BucketNode result = list.get("Gabriel");
+        System.out.println("ELEMENT: " + result.getKey());
     }
 
 }
