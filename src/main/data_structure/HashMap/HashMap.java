@@ -33,4 +33,8 @@ public class HashMap {
             bucket.add(key, value);
         }
     }
+
+    public void remove(String key) {
+        int index = calcIndex(key);
+    }
 }

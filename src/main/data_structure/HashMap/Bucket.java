@@ -79,6 +79,10 @@ public class Bucket {
 
     }
 
+    public void remove(String key) {
+        
+    }
+
     public boolean replace(String key, int newValue) {
         BucketNode current = head;
 
