@@ -1,16 +1,16 @@
 package data_structure.HashMap;
 
-public class HashMap {
+public class HashMap<K, V> {
     private int capacity;
     private int size;
-    private Bucket[] buckets;
+    private Bucket<K, V>[] buckets;
 
     public HashMap(int capacity) {
         this.capacity = capacity;
         this.buckets = new Bucket[capacity];
 
         for(int i = 0; i < buckets.length; i++) {
-            buckets[i] = new Bucket();
+            buckets[i] = new Bucket<>();
         }
     }
 
@@ -24,15 +24,15 @@ public class HashMap {
      * @param key
      * @return index;
      */
-    private int calcIndex(String key) {
+    private int calcIndex(K key) {
         int hash = key.hashCode() & 0x7fffffff;
         return hash % buckets.length;
 
     }
 
-    public void put(String key, int value) {
+    public void put(K key, V value) {
         int index = calcIndex(key);
-        Bucket bucket = buckets[index];
+        Bucket<K, V> bucket = buckets[index];
 
         boolean replaced = bucket.replace(key, value);
         
@@ -42,9 +42,9 @@ public class HashMap {
         }
     }
 
-    public void remove(String key) {
+    public void remove(K key) {
         int index = calcIndex(key);
-        Bucket bucket = buckets[index];
+        Bucket<K, V> bucket = buckets[index];
 
         boolean result = bucket.remove(key);
         if(!result) {
@@ -53,9 +53,9 @@ public class HashMap {
         size--;
     }
 
-    public BucketNode get(String key) {
+    public BucketNode<K, V> get(K key) {
         int index = calcIndex(key);
-        Bucket bucket = buckets[index];
+        Bucket<K, V> bucket = buckets[index];
 
         return bucket.get(key);
     }

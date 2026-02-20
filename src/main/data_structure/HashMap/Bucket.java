@@ -1,11 +1,11 @@
 package data_structure.HashMap;
 
-class BucketNode {
-    private String key;
-    private int value;
-    private BucketNode next;
+class BucketNode<K, V> {
+    private K key;
+    private V value;
+    private BucketNode<K, V> next;
 
-    public BucketNode(String key, int value) {
+    public BucketNode(K key, V value) {
         this.key = key;
         this.value = value;
         this.next = null;
@@ -13,35 +13,29 @@ class BucketNode {
 
     // GETTERS:
 
-    public String getKey() {
-        return key;
-    }
+    public K getKey() { return key; }
 
-    public int getValue() {
-        return value;
-    }
+    public V getValue() { return value; }
     
-    public BucketNode getNext() {
-        return next;
-    }
+    public BucketNode<K, V> getNext() { return next; }
     
     // SETTERS:
 
-    public void setKey(String newKey) {
+    public void setKey(K newKey) {
         key = newKey;
     }
 
-    public void setValue(int newValue) {
+    public void setValue(V newValue) {
         value = newValue;
     }
 
-    public void setNext(BucketNode newNext) {
+    public void setNext(BucketNode<K, V> newNext) {
         next = newNext;
     }
 }
 
-public class Bucket {
-    private BucketNode head;
+public class Bucket<K, V> {
+    private BucketNode<K, V> head;
     private int size;
 
     public Bucket() {
@@ -49,11 +43,11 @@ public class Bucket {
         this.size = 0;
     }
 
-    public BucketNode getHead() {
+    public BucketNode<K, V> getHead() {
         return head;
     }
 
-    public void setHead(BucketNode newHead) {
+    public void setHead(BucketNode<K, V> newHead) {
         head = newHead;
     }
 
@@ -62,8 +56,8 @@ public class Bucket {
 
     }
 
-    public boolean add(String key, int value) {
-        BucketNode newNode = new BucketNode(key, value);
+    public boolean add(K key, V value) {
+        BucketNode<K, V> newNode = new BucketNode<>(key, value);
         
         if(isEmpty()) {
             head = newNode;
@@ -78,7 +72,7 @@ public class Bucket {
         return true;
     }
 
-    public boolean remove(String key) {
+    public boolean remove(K key) {
         if(isEmpty()) {
             return false;
         }
@@ -89,7 +83,7 @@ public class Bucket {
             return true;
         }
 
-        BucketNode current = head;        
+        BucketNode<K, V> current = head;        
         while(current.getNext() != null && !current.getNext().getKey().equals(key)) {
             current = current.getNext();
         }
@@ -103,8 +97,8 @@ public class Bucket {
         return false;
     }
 
-    public boolean replace(String key, int newValue) {
-        BucketNode current = head;
+    public boolean replace(K key, V newValue) {
+        BucketNode<K, V> current = head;
 
         while(current != null) {
             if(current.getKey().equals(key)) {
@@ -118,12 +112,12 @@ public class Bucket {
         return false;
     }
 
-    public BucketNode get(String key) {
+    public BucketNode<K, V> get(K key) {
         if(isEmpty()) {
             return null;
         }
 
-        BucketNode current = head;
+        BucketNode<K, V> current = head;
         while (current != null) {
             if(current.getKey().equals(key)) {
                 return current;
