@@ -133,26 +133,4 @@ public class Bucket {
 
         return null;
     }
-
-
-    public void print() {
-        BucketNode current = head;
-        while(current != null) {
-            System.out.println("key: " + current.getKey() + " " + "value: " + current.getValue());
-            current = current.getNext();
-        }
-    }
-
-
-    public static void main(String[] args) {
-        Bucket list = new Bucket();
-
-        list.add("Gabriel", 7);
-        list.add("Lucas", 3);
-        list.add("Pablo", 9);
-
-        BucketNode result = list.get("Gabriel");
-        System.out.println("ELEMENT: " + result.getKey());
-    }
-
 }
