@@ -1,20 +1,25 @@
 package leetcode;
 
-// LEETCODE: 014. Longest Commom Prefix;
+// Problem: 014. Longest Commom Prefix;
 
 public class LongestCommonPrefix {
     /**
-     * Solves the Longest Common Prefix problem using Horizontal Scanning.
-     * * Algorithm:
-     * 1. Assume the first string as the initial prefix.
-     * 2. Iteratively compare the prefix with each subsequent string.
-     * 3. Shorten the prefix using substring() until a match is found at the start of the current string.
-     * * Complexity Analysis:
-     * - Time: O(S), where S is the sum of all characters in all strings (worst case).
-     * - Space: O(1), as it only stores the prefix string regardless of input array size.
-     * * @param strs Array of strings to analyze.
-     * @return The longest common prefix or an empty string if none exists.
-     */
+
+    * Finds the longest common prefix among an array of strings.
+    * The method iteratively reduces the prefix candidate until it matches
+    * the beginning of every string in the array.
+    *
+    * obs: This solution compares each string against a shrinking prefix
+    * derived from the first string.
+    *
+    * time complexity: O(n * m);
+    * space complexity: O(1);
+    *
+    * @param strs array of strings to be analyzed;
+    * @return the longest common prefix shared among all strings, or an empty string if none exists.
+    *
+
+    */
     public String solution(String[] strs) {
         if (strs == null || strs.length == 0) return "";
         

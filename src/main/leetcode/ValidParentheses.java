@@ -1,26 +1,25 @@
 package leetcode;
 
+// Problem: 20. Valid Parentheses
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
 public class ValidParentheses {
-
     /**
-     * Validates whether the given sequence of parentheses is correctly balanced.
-     *
-     * A string is considered valid if:
-     * 
-     * Every opening bracket has a corresponding closing bracket.
-     * Brackets are closed in the correct order.
-     * Only the following bracket types are supported: (), {}, [].
-     * 
-     * This method uses a stack to track opening brackets and ensures
-     * that each closing bracket matches the most recent opening bracket.
-     *
-     * @param arr an array of characters representing the parentheses sequence
-     * @return {@code true} if the sequence is valid; {@code false} otherwise
-     */
+    * Iterates through an array of characters representing brackets and verifies whether the sequence is valid.
+    * A sequence is valid if every opening bracket has a corresponding closing bracket in the correct order.
+    *
+    * obs: This solution assumes the input contains only bracket characters: (), {}, [].
+    *
+    * time complexity: O(n);
+    * space complexity: O(n);
+    *
+    * @param arr array of characters containing bracket symbols;
+    * @return true if the bracket sequence is valid; false otherwise.
+    *
+    */
     public static boolean isValid(char[] arr) {
 
         Stack<Character> stack = new Stack<>();
