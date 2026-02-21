@@ -1,3 +1,5 @@
+package algorithms.search;
+
 public class BinarySearch {
 	/** 
 	 * Find the index of a target using binary search.
