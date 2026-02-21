@@ -1,5 +1,7 @@
 package data_structure.queues;
 
+import java.util.NoSuchElementException;
+
 class Node {
     int data;
     Node next;
@@ -23,7 +25,7 @@ public class Queue {
     
     public int peek() {
         if(isEmpty()) {
-            throw new RuntimeException("Queue is empty.");
+            throw new NoSuchElementException("Queue is empty");
         }
 
         return head.data;
@@ -50,8 +52,7 @@ public class Queue {
 
     public int dequeue() {
         if(isEmpty()) {
-            throw new RuntimeException("Queue is empty.");
-
+            throw new NoSuchElementException("Queue is empty");
         }
 
         int result = head.data;
