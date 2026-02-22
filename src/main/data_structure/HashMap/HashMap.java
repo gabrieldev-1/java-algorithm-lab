@@ -24,28 +24,32 @@ public class HashMap<K, V> {
     }
 
     private boolean resize() {
-        if(getSize() == 0) {
-            throw new NoSuchElementException("The array is empty.");
-        }
+        if (size <= capacity * LOAD_FACTOR) return false;
 
-        if(capacity * LOAD_FACTOR != size) {
-            return false;
-        }
+        int newCapacity = capacity * 2;
 
         @SuppressWarnings("unchecked")
-        Bucket<K, V>[] newBuckets = new Bucket[capacity * 2];
+        Bucket<K, V>[] newBuckets = new Bucket[newCapacity];
+        for(int i = 0; i < buckets.length; i++) {
+            buckets[i] = new Bucket<>();
+        }
 
-        for(int i = 0; i < size; i++) {
+        for(int i = 0; i < capacity; i++) {
             Bucket<K, V> oldBucket = buckets[i];
-            Bucket<K, V> newBucket = newBuckets[i];
-
             BucketNode<K, V> current = oldBucket.getHead();
-            while(current.getNext() != null) {
-                // continue...
+           
+            while(current != null) {
+                int hash = current.getKey().hashCode() & 0x7fffffff;
+                int newIndex = hash % newCapacity;
+
+                newBuckets[newIndex].add(current.getKey(), current.getValue());
+                current = current.getNext();
             }
             
         }
 
+        buckets = newBuckets;
+        capacity = newCapacity;
         return true;
     }
 
@@ -62,6 +66,8 @@ public class HashMap<K, V> {
     }
 
     public void put(K key, V value) {
+        resize();
+
         int index = calcIndex(key);
         Bucket<K, V> bucket = buckets[index];
 
