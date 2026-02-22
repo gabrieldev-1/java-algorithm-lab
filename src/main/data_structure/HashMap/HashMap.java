@@ -1,12 +1,17 @@
 package data_structure.HashMap;
 
+import java.util.NoSuchElementException;
+
 public class HashMap<K, V> {
+    private static double LOAD_FACTOR = 0.75;
+
     private int capacity;
     private int size;
     private Bucket<K, V>[] buckets;
 
-    public HashMap(int capacity) {
-        this.capacity = capacity;
+    public HashMap() {
+        this.capacity = 16;
+        this.size = 0;
         this.buckets = new Bucket[capacity];
 
         for(int i = 0; i < buckets.length; i++) {
@@ -16,6 +21,32 @@ public class HashMap<K, V> {
 
     public int getSize() {
         return size;
+    }
+
+    private boolean resize() {
+        if(getSize() == 0) {
+            throw new NoSuchElementException("The array is empty.");
+        }
+
+        if(capacity * LOAD_FACTOR != size) {
+            return false;
+        }
+
+        @SuppressWarnings("unchecked")
+        Bucket<K, V>[] newBuckets = new Bucket[capacity * 2];
+
+        for(int i = 0; i < size; i++) {
+            Bucket<K, V> oldBucket = buckets[i];
+            Bucket<K, V> newBucket = newBuckets[i];
+
+            BucketNode<K, V> current = oldBucket.getHead();
+            while(current.getNext() != null) {
+                // continue...
+            }
+            
+        }
+
+        return true;
     }
 
     /**
