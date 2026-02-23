@@ -4,7 +4,7 @@ import java.util.NoSuchElementException;
 
 public class HashMap<K, V> {
 
-    private static double LOAD_FACTOR = 0.75;
+    private static final double LOAD_FACTOR = 0.75;
     private static final int DEFAULT_CAPACITY = 16;
 
     private Node<K, V>[] table;
@@ -31,7 +31,7 @@ public class HashMap<K, V> {
         this.size = 0;
     }
 
-    private int index(K key) {
+    private int index(K key, int capacity) {
         int hash = key.hashCode() & 0x7fffffff;
         return hash % capacity;
     }
@@ -41,52 +41,87 @@ public class HashMap<K, V> {
     }
 
     private void resize() {
+        int newCapacity = capacity * 2;
+        Node<K, V>[] newTable = new Node[newCapacity];
 
-    }
-    
-    public Node<K, V> get(K key) {
-        try {
+        for (int i = 0; i < capacity; i++) {
+            Node<K, V> current = table[i];
 
-            Node<K, V> element = table[index(key)];
-            
-            while (element.key != key) {
-                element = element.next;
+            while (current != null) {
+                Node<K, V> next = current.next;
+
+                int newIndex = index(current.key, newCapacity);
+
+                current.next = newTable[newIndex];
+                newTable[newIndex] = current;
+
+                current = next;
             }
-
-            return element;
-        
-        } catch (NoSuchElementException err) {
-            throw new NoSuchElementException("ERROR: The element not found. " + err.getMessage());
-
         }
 
+        table = newTable;
+        capacity = newCapacity;
+        threshold = (int) (capacity * LOAD_FACTOR);
+    }
+    
+    public V get(K key) {
+        int index = index(key, capacity);
+        Node<K, V> element = table[index];
+        
+        while (element != null) {
+            if(element.key.equals(key)) {
+                return element.value;
+            }
+            element = element.next;
+        }
+
+        return null;
+        
     }
 
     public void put(K key, V value) {
-        if(threshold >= size) {
+        if(size >= threshold) {
             resize();
         }
 
-        Node<K, V> current = table[index(key)];
+        int index = index(key, capacity); 
+        Node<K, V> current = table[index];
+        Node<K, V> head = current;
 
-        while (current != null) {
+        while(current != null) {
+            if(current.key.equals(key)) {
+                current.value = value;
+                return;
+            }
             current = current.next;
         }
-        current = new Node<K, V>(key, value);
+
+        Node<K, V> newNode = new Node<K, V>(key, value);
+        newNode.next = head;
+        table[index] = newNode;
+        size++;
 
     }
 
     public void remove(K key) {
-        try {
-            
+        int index = index(key, capacity);
+        Node<K, V> current = table[index];
+        Node<K, V> previous = null;
 
-        } catch(NoSuchElementException err) {
-            throw new NoSuchElementException("ERROR: The element not found. " + err.getMessage());
+        while (current != null) {
+            if (current.key.equals(key)) {
+                if (previous == null) {
+                    table[index] = current.next;
+                } else {
+                    previous.next = current.next;
+                }
+                size--;
+                return;
+            }
+            previous = current;
+            current = current.next;
         }
 
-    }
-
-    public static void main(String[] args) {
-
+        throw new NoSuchElementException();
     }
 }
